@@ -7,7 +7,7 @@ A repo for creating the knowledge base for the ebi team
 ..
 .
 
-_note_: if you are unable to render ipynb in github, use [nbviewer](https://nbviewer.jupyter.org/)
+_note_: if you are unable to render ipynb in github, please download it 
 ### References / Further Reading
 1.	 http://www.cs.toronto.edu/~hinton/coursera_slides.html - Geoffrey Hinton  lecture slides
 2.	http://www.cs.toronto.edu/~hinton/coursera_lectures.html - Geoffrey Hinton  coursera lecture videos. One of THE most popular deeplearning course. (now depreciated from course era, mooc lectures available here)
