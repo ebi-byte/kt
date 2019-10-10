@@ -1,6 +1,6 @@
-## knowledge training
+## EBI Modeling Team - Stats/ML KT 
 
-A repo for creating the knowledge base for the ebi team
+A repo for creating the knowledge base for the EBI team
 
 ## Pre-requisites
 ....
