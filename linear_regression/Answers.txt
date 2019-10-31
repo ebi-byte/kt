@@ -1,0 +1,153 @@
+Logistic Regression:
+
+1.What does Oddsratio>1 imply?
+When predictor i.e X1 is binary -Relative probability of event to non-eventis higher when X1 is present vis-a-vis when X1 is absent
+When X1 is continuous- Relative probabilityof event to non-event is higher when X1 increases by 1 unit
+
+2. What is complete separation and quasi complete separation problem in Logistic regression?
+Complete separation implies that there is some linear combination of the predictors that perfectly predicts the dependent variable
+Whenever x > 3.5, y = 1 Wheneve rx < 3.5, y = 0 It is a case of complete separation
+Quasi-complete separation problem exists whenever thereis complete separation except for atleast a single value of the predictor for which both values of the
+ dependent variable occur. 
+For x > 4, y = 1 Forx < 4, y = 0 For x = 4, there exists one record with y = 0 and another with y =1 Itis a case of quasi-complete separation
+
+3. Why can't we use the same cost function of MSE in case of logistic regression as we did in case of linear regression?
+ It’s because our prediction function is non-linear (due to sigmoid transform). Squaring this prediction as we do in MSE results in a non-convex function 
+with many local minimums. If our cost function has many local minimums, gradient descent may not find the optimal global minimum.
+
+4. What is the role of VIF(Variable inflation factor) in logistic regression variable selection process?
+
+VIF is used for tackling multicolinearity problem while variable or feature selection during logistic regression. We normally eliminate variables with VIF more than 2 
+and calculate the VIF for rest of the parameters again keeping them in model. This process continues till VIF of all the remaining variables are below 2
+
+5. In what situation Oversampling is used in modelling process?
+When event rate is low, the oversampling of events  Reduces the class biasness between events and non-events Improves model performance. Two common approaches of oversampling is 
+a. n0 change in non-events but increase the number of events by randomly replicating the existing  number of events
+b. No change in events but downsize the number of non-events by random sampling of non-events
+
+6. What are the disadvantages for Logistic regression?
+
+Logistic Regression is also not one of the most powerful algorithms out there and can be easily outperformed by more complex ones. Also, we can’t solve non-linear problems with logistic regression since it’s decision surface is linear.
+
+Logistic regression will not perform well with independent variables that are not correlated to the target variable and are very similar or correlated to each other
+
+
+Linear Regression
+
+1. What is the significance of the learning rate in the iterative error minimization process?
+
+The learning rate controls the size of update of bias as well as the coefficients when we optimize our coefficients using an iterative approach mentioned in the code. If we don't select the appropriate learning rate, the update size can be so huge or small that we will not be able to reduce or visualize the error minimization process.
+
+2. Why do we calculate gradient of the simple linear regression equation?
+
+In order to minimize the cost function,there are two parameters (coefficients) in our cost function we can control: Coefficient (m) of the independent variable and and bias (b).
+Since we need to consider the impact each one has on the final prediction, we use partial derivatives. To find the partial derivatives, we use the Chain rule. 
+We need the chain rule because (y-(mx+b))2 is really 2 nested functions: the inner function y-(mx+b) and the outer function x2. 
+We calculate the gradient vectors as  by calculating the partial derivatives once with respect to dm and then with respect to db
+
+
+3. Why do we use MSE as a cost function in simple linear regression?
+
+MSE is used as a cost function in simple linear regression because it penalizes the large error by squaring it. So while optimizing the coefficient the we can mimize
+ the effect of outliers.
+
+4.What are the disadvantages of a linear model?
+
+1.It can be used to predict linear relationships only. Unfornutaly most of the relations are non linear in nature
+2.Linear regression looks at a relationship between the mean of the dependent variable and the independent variables. For example, if you look at the relationship between the birth weight of infants and maternal characteristics such as age, linear regression will look at the average weight of babies born to mothers of different ages
+3.Linear Regression is overly Sensitive to Outliers
+4.Linear regression assumes that the data are independent. That means that the scores of one subject (such as a person) have nothing to do with those of another.This might not be always the case, in most real life scenarios it is not.
+
+5.What is the minimum number of coefficients needed for a linear regression model estimation?
+
+From the linear regression equation we can see that y=mx+c is the most basic linear equation . To find the model equation we need to estimate both m and c given 
+we have data for x and y. Although we call the coefficient c as bias , We need measurement of both for accurate estimation of even a simple linear equation. 
+So, The minimum no of coefficients needed for linear regression model estimation is 2.
+
+6.Which of the following are cases of Linear Regression Model? Further categorize them into Simple Linear Regression Models  and Multiple Linear RegressionModels.
+
+a.DefaultAmount=a+ß^2(FICOScore)+?^3(Income)+ e
+
+b.CATScore=a+ß(#Attempts)+?(EducationalBackground)+ e
+
+c.Consumption=a+ß(DisposableIncome)+ e
+
+d.DemandPrice=a+ß(QuantityDemanded)+ e
+
+All the models are cases of linear regression models.Because in all the cases the dependant variable has a linear relationship with the independant variables
+
+a. case of Multiple linear regression-no of independent variable- 2 independent variable-FICOScore and Income
+b.case of Multiple linear regression- no of independent variable- 2 independent variable- Attempts & EducationalBackground
+c. case of simple linear regression- no of independent variable- 1- DisposableIncome
+d. case of simple linear regression- no of independent variable- 1- QuantityDemanded
+
+7.What is the minimum no of observations needed for estimating the coefficients of the linear regression model which has 7 independent variables?
+
+According to the assumptions in linear regression no of observation should be > (no of independant variable+1) 
+So, Minimum no of observations needed= 9
+
+8 Why Linear regression does not work on a binary target?
+
+TechnicalIssue:Violation of Assumptions
+A binary(i.e.dichotomous) dependent variable in a linearregressionmodel violates assumptions of -Homoscedasticity -Normality of the Error Term
+
+FundamentalIssue: Bounded Probabilities
+Linear Probability Model: - yi=aX+ ß If X has no upperor lower bound,then for any value of ß there are values of X for which either yi>1 or yi<0 -This is contradictory,as the true values of probabilities should lie within(0,1) interval 
+
+9. In practice, why we don't need to check if dataset is following a normal distribution or not?
+The Central Limit Theorem states that the sampling distribution of the sample means approaches a normal distribution as the sample size gets larger . In practice, the dataset on which the real life models are built is so huge that the statistics is assumed to follow normal distribution.
+
+Multiple Linear Regression:
+
+1.What is the role of Cross- validation in linear regression?
+
+Cross Validation is a very useful technique for assessing the effectiveness of your model, particularly in cases where you need to mitigate overfitting.
+ It is also of use in determining the hyper parameters of your model, in the sense that which parameters will result in lowest test error. 
+
+2. On basis of which summary attributes feature is selected in multi linear regression?
+
+The most useful summary attribute in case of linear regression is the p value. If a feature has p value greater than 0.05, we remove the feature from the model and fit the model keeping the rest of the variables. p value tells us if the the variable is significant in predicting the target variable.
+
+3.What is overfitting problem?
+
+Overfitting a model is a condition where a statistical model begins to describe the random error in the data rather than the relationships between variables. This problem occurs when model is too complex or the number of observations are very low to generalize a model.
+
+4. What is adjusted R square? how it helps in overcoming the limitations of R square?
+
+The adjusted R-squared is a modified version of R-squared that has been adjusted for the number of predictors in the model. The adjusted R-squared increases only
+ if the new term improves the model more than would be expected by chance
+Rsquare increases all the time a new variable is added to the model irrespective of it improves the model prediction power or not.
+The R-squared never decreases, not even when it’s just a chance correlation between variables. Adjusted R square increases only if the new variable improves
+ the model. Also,When a model contains an excessive number of independent variables and polynomial terms,R square becomes overly customized to
+ fit the peculiarities and random noise in your sample rather than reflecting the entire population. On the other hand,Adjusted R square decreases when 
+there is random noise in the data. So Adjusted R square is a better measure of Model performance than R square.
+
+Multi class Classification:
+
+1.Why multi class regression is considered a combination of multiple logistic regression problems?
+Multi class logistic regression can be considered a combination of different multiple logistic problems because it can be broken into n binary or logistic cassification problems.For each sub-problem, we select one class (YES or 1) and lump all the others into a second class (NO or 0). Then we take the class with the highest predicted value of probability.
+
+2.Choose which of the following options is true regarding One-Vs-All method in Logistic Regression.
+
+A) We need to fit n models in n-class classification problem
+
+B) We need to fit n-1 models to classify into n classes
+
+C) We need to fit only 1 model to classify into n classes
+
+D) None of these
+
+Answer : We need to fit n models i . e 1 for each class where we select one class as  (YES or 1) and lump all the others into a second class (NO or 0). Then we take the class with the highest predicted value of probability.
+
+3.What is the advantage of a stratified multiclass logistic regression model over a one vs all logistic model?
+
+A stratified multi class logistic regression model is the one where the whole data is fit simultaneously rather than considering it a series of one vs all logistic regression.There are often advantages when the model is fit simultaneously.   The estimates from a joint model are often different than a stratified model. The separate logistic models tend to have larger standard errors although it may not be so bad when the most frequent level of the outcome is set as the reference level. 
+
+
+
+
+
+
+
+
+
